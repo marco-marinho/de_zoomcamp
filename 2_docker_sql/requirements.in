@@ -1,0 +1,7 @@
+pandas
+pgcli
+psycopg2-binary
+psycopg-binary
+pyarrow
+sqlalchemy
+typer
