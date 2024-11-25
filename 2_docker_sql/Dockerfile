@@ -8,8 +8,9 @@ RUN apt-get update && \
 
 WORKDIR /app
 RUN wget https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2024-01.parquet -O data.parquet
+RUN wget https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv -O taxi_zone_lookup.csv
 COPY requirements.txt requirements.txt
 COPY data_loader.py data_loader.py
 RUN pip install -r requirements.txt
 
-ENTRYPOINT [ "python", "data_loader.py", "root", "root", "pg-server", "5432", "ny_taxi", "data.parquet" ]
+ENTRYPOINT [ "python", "data_loader.py", "root", "root", "pg-server", "5432", "ny_taxi", "data.parquet", "taxi_zone_lookup.csv" ]
